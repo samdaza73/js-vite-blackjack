@@ -8,11 +8,9 @@
  // CREAR CARTA, el turno es para saber qué jugador está jugando
 export const crearCarta = (carta, turno, divCartasJugadores) => {//el turno identifica el jugador que está jugando o si es la computadora
     // console.log('crearCarta turno', carta, turno, divCartasJugadores);
-    
-
+        
     if (!carta) throw new Error("La carta es un argumento obligatorio");
     
-
     const imgCarta = document.createElement('img');
     imgCarta.src = `assets/cartas/${carta}.png`;
     imgCarta.classList.add('carta');

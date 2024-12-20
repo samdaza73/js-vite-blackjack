@@ -1,7 +1,7 @@
 import _ from 'underscore';//tomamos todo el paquete y lo renonbramos con guión bajo
 
 // Como creé un archivo index en el directorio usecases con todas las exportaciones, ahora hago una sola importación
-import { crearDeck, pedirCarta, valorCarta, crearCarta, turnoComputadora } from "./usecases";
+import { crearDeck, crearCarta, pedirCarta,  turnoComputadora, valorCarta } from "./usecases";
 
 
 // Sintaxis del patrón módulo para proteger el código, declaro una función flecha anónima autoinvocada; crea un nuevo scope que no tiene una referencia por nombre y va a ser imposible llamar el objeto directamente, las variables no tienen un identificador por nombre, a esto se le conoce como el patrón módulo; cuando se usa este patron es recomendable usar el modo estricto 'use strict'
@@ -79,12 +79,14 @@ const   divCartasJugadores  = document.querySelectorAll('.divCartas'),
    * turno, el cero será el primer jugador y el último será la computadora
   */
 const acumularPuntos = ( carta, turno ) => {//este código pone el marcador en la pantalla
+  
     // console.log('función acumularPuntos carta, turno jugador1', carta, turno);
     
     puntosJugadores[turno] = puntosJugadores[turno] + valorCarta(carta);
     puntosHTML[turno].innerText = puntosJugadores[turno]
     return puntosJugadores[turno]
 }
+
 
 const determinarGanador = () => {
 
@@ -173,7 +175,7 @@ btnDetener.addEventListener('click', () => {
     
     turnoComputadora(puntosMinimos, deck,  acumularPuntos, puntosJugadores, divCartasJugadores, determinarGanador);
 })
-
+// console.log(divCartasJugadores);
 
   // código para resetear la página para empezar un nuevo juego
 btnNuevo.addEventListener('click', () => {
